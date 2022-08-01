@@ -11,7 +11,7 @@ import 'package:image_picker/image_picker.dart';
 class AuthController {
   //function for google sign in
   final _googleSignIn = GoogleSignIn();
-  signinWithGoogle() async {
+  Future<User?> signinWithGoogle() async {
     try {
       final GoogleSignInAccount? googleAccount = await _googleSignIn.signIn();
       if (googleAccount != null) {
@@ -21,11 +21,12 @@ class AuthController {
           accessToken: googleSignInAuthentication.accessToken,
           idToken: googleSignInAuthentication.idToken,
         );
-        await firebaseAuth.signInWithCredential(credential);
+        UserCredential userCredential =
+            await firebaseAuth.signInWithCredential(credential);
+        return userCredential.user;
       }
-    } on FirebaseAuthException catch (e) {
-      print(e.message);
-      throw e;
+    } catch (e) {
+      print(e);
     }
   }
 
@@ -38,7 +39,7 @@ class AuthController {
   }
 
   //function to signout
-  signOut() async {
+  Future signOut() async {
     await firebaseAuth.signOut();
     await _googleSignIn.signOut();
   }

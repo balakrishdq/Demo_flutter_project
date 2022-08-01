@@ -157,19 +157,22 @@ class _LoginScreenState extends State<LoginScreen> {
               SizedBox(
                 height: 20,
               ),
-              Center(
-                child: SignInButton(
-                  Buttons.GoogleDark,
-                  onPressed: () async {
-                    await AuthController().signinWithGoogle();
-                    Navigator.of(context).push(
-                      MaterialPageRoute(
-                        builder: (context) => HomeScreen(),
+              _isLoading
+                  ? CircularProgressIndicator()
+                  : Center(
+                      child: SignInButton(
+                        Buttons.GoogleDark,
+                        onPressed: () async {
+                          setState(() {
+                            _isLoading = true;
+                          });
+                          await AuthController().signinWithGoogle();
+                          setState(() {
+                            _isLoading = false;
+                          });
+                        },
                       ),
-                    );
-                  },
-                ),
-              ),
+                    ),
               SignInButton(
                 Buttons.Facebook,
                 onPressed: () async {
