@@ -182,6 +182,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       _userName_Controller.clear();
                       _email_Controller.clear();
                       _password_Controller.clear();
+                      _image!.clear();
                     },
                     child: _isLoading
                         ? Center(
