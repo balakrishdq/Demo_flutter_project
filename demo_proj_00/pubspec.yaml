@@ -45,6 +45,10 @@ dependencies:
   google_sign_in: ^5.4.0
   flutter_bloc: ^8.0.1
   flutter_facebook_auth: ^4.4.0+1
+  fluentui_icons: ^1.0.0
+  gap: ^2.0.0
+  get: ^4.6.5
+  
 
 dev_dependencies:
   flutter_test:
