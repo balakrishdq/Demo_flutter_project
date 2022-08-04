@@ -1,7 +1,9 @@
 import 'package:demo_proj_00/utils/app_Styles.dart';
+import 'package:demo_proj_00/utils/app_layout.dart';
 import 'package:demo_proj_00/utils/app_list_info.dart';
 import 'package:demo_proj_00/views/screens/tour_places.dart';
 import 'package:demo_proj_00/views/screens/trip_details.dart';
+import 'package:demo_proj_00/widgets/double_text.dart';
 import 'package:fluentui_icons/fluentui_icons.dart';
 
 import 'package:flutter/material.dart';
@@ -38,8 +40,8 @@ class HomeScreenState extends State<HomeScreen> {
       body: ListView(
         children: [
           Container(
-            padding: const EdgeInsets.symmetric(
-              horizontal: 20,
+            padding: EdgeInsets.symmetric(
+              horizontal: AppLayout.getHeight(20),
             ),
             child: Column(
               children: [
@@ -62,8 +64,8 @@ class HomeScreenState extends State<HomeScreen> {
                       ],
                     ),
                     Container(
-                      height: 50,
-                      width: 50,
+                      height: AppLayout.getHeight(50),
+                      width: AppLayout.getHeight(50),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10),
                         image: DecorationImage(
@@ -80,8 +82,9 @@ class HomeScreenState extends State<HomeScreen> {
                     borderRadius: BorderRadius.circular(10),
                     color: Color(0xFFF4F6FD),
                   ),
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
+                  padding: EdgeInsets.symmetric(
+                      horizontal: AppLayout.getHeight(12),
+                      vertical: AppLayout.getHeight(12)),
                   child: Row(
                     children: [
                       const Icon(
@@ -95,35 +98,16 @@ class HomeScreenState extends State<HomeScreen> {
                     ],
                   ),
                 ),
-                const Gap(40),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      'Upcoming Trips',
-                      style: Styles.headLineStyle2,
-                    ),
-                    InkWell(
-                      onTap: () {
-                        print('You are tapped');
-                      },
-                      child: Text(
-                        'View all',
-                        style: Styles.textStyle.copyWith(
-                          color: Styles.primaryColor,
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
+                Gap(AppLayout.getHeight(40)),
+                DoubleText(bigText: 'Upcoming Trips', smallText: 'View all'),
               ],
             ),
           ),
-          const Gap(15),
+          Gap(AppLayout.getHeight(40)),
           SingleChildScrollView(
             scrollDirection: Axis.horizontal,
-            padding: const EdgeInsets.only(
-              left: 20,
+            padding: EdgeInsets.only(
+              left: AppLayout.getHeight(20),
             ),
             child: Row(
               children: tripList
@@ -131,35 +115,19 @@ class HomeScreenState extends State<HomeScreen> {
                   .toList(),
             ),
           ),
-          const Gap(15),
+          Gap(AppLayout.getHeight(10)),
           Container(
-            padding: const EdgeInsets.symmetric(horizontal: 20),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  'Tour Spots',
-                  style: Styles.headLineStyle2,
-                ),
-                InkWell(
-                  onTap: () {
-                    print('You are tapped');
-                  },
-                  child: Text(
-                    'View all',
-                    style: Styles.textStyle.copyWith(
-                      color: Styles.primaryColor,
-                    ),
-                  ),
-                ),
-              ],
+            padding: EdgeInsets.symmetric(horizontal: AppLayout.getHeight(20)),
+            child: DoubleText(
+              bigText: 'Tour Spots',
+              smallText: 'View all',
             ),
           ),
-          const Gap(15),
+          Gap(AppLayout.getHeight(15)),
           SingleChildScrollView(
             scrollDirection: Axis.horizontal,
-            padding: const EdgeInsets.only(
-              left: 20,
+            padding: EdgeInsets.only(
+              left: AppLayout.getHeight(20),
             ),
             child: Row(
               children: tourPlaceList
