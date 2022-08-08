@@ -1,8 +1,8 @@
-import 'package:demo_proj_00/const.dart';
 import 'package:demo_proj_00/utils/app_Styles.dart';
 import 'package:demo_proj_00/utils/app_layout.dart';
 import 'package:demo_proj_00/widgets/double_text.dart';
 import 'package:demo_proj_00/widgets/icon_text.dart';
+import 'package:demo_proj_00/widgets/tabs.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
@@ -27,49 +27,7 @@ class SearchScreen extends StatelessWidget {
                 .copyWith(fontSize: AppLayout.getWidth(35)),
           ),
           Gap(AppLayout.getHeight(20)),
-          FittedBox(
-            child: Container(
-              padding: EdgeInsets.all(AppLayout.getHeight(3.5)),
-              child: Row(
-                children: [
-                  //take a trip
-                  Container(
-                    width: size.width * .44,
-                    padding: EdgeInsets.all(AppLayout.getHeight(7)),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.horizontal(
-                        left: Radius.circular(
-                          AppLayout.getHeight(50),
-                        ),
-                      ),
-                      color: Colors.white,
-                    ),
-                    child: Center(child: Text("Make a Trip")),
-                  ),
-                  //tour spots
-                  Container(
-                    width: size.width * .44,
-                    padding: EdgeInsets.all(AppLayout.getHeight(7)),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.horizontal(
-                        right: Radius.circular(
-                          AppLayout.getHeight(50),
-                        ),
-                      ),
-                      color: Colors.transparent,
-                    ),
-                    child: Center(child: Text("Tour Spots")),
-                  ),
-                ],
-              ),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(
-                  AppLayout.getHeight(50),
-                ),
-                color: const Color(0xFFF4F6FD),
-              ),
-            ),
-          ),
+          Tabs(firstTab: 'Make a Trip', secondTab: 'Tour Spots'),
           Gap(AppLayout.getHeight(25)),
           IconText(icon: Icons.pin_drop_outlined, text: 'Pickup'),
           Gap(AppLayout.getHeight(20)),
@@ -147,7 +105,7 @@ class SearchScreen extends StatelessWidget {
                         width: size.width * 0.44,
                         height: AppLayout.getHeight(190),
                         decoration: BoxDecoration(
-                            color: Color(0xFF3ABBBB),
+                            color: Color(0xFFbcd948),
                             borderRadius:
                                 BorderRadius.circular(AppLayout.getHeight(18))),
                         padding: EdgeInsets.symmetric(
@@ -185,7 +143,7 @@ class SearchScreen extends StatelessWidget {
                             shape: BoxShape.circle,
                             border: Border.all(
                               width: 18,
-                              color: Color(0xFF189999),
+                              color: Color(0xFF788a2f),
                             ),
                             color: Colors.transparent,
                           ),

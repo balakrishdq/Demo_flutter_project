@@ -1,5 +1,7 @@
 import 'package:demo_proj_00/views/screens/home_screen.dart';
 import 'package:demo_proj_00/views/screens/search_screen.dart';
+import 'package:demo_proj_00/views/screens/trips_screen.dart';
+import 'package:demo_proj_00/views/screens/user_profile.dart';
 import 'package:fluentui_icons/fluentui_icons.dart';
 import 'package:flutter/material.dart';
 
@@ -15,8 +17,8 @@ class _BottomBarState extends State<BottomBar> {
   static final List<Widget> _widgetOptions = <Widget>[
     HomeScreen(),
     SearchScreen(),
-    const Text('Ticket'),
-    const Text('Profile'),
+    TripsScreen(),
+    UserProfile(),
   ];
 
   void _onItemTapped(int index) {
